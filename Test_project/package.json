@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "graphql": "^15.8.0",
+    "ra-data-graphql-simple": "^4.16.12"
+  }
+}
