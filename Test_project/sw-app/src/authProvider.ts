@@ -51,7 +51,7 @@ const authProvider: AuthProvider = {
     if (hasUser()) {
       return Promise.resolve("");
     } else {
-      return Promise.resolve("");cd
+      return Promise.resolve("");
     }
   },
   getIdentity: (): Promise<UserIdentity> => {

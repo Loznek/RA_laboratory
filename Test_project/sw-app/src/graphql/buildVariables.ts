@@ -27,7 +27,7 @@ export default (introspectionResults: IntrospectionResult) =>
     queryType: IntrospectionField
   ) => {
 
-    //console.log(params);
+    console.log(params);
     const preparedParams = prepareParams(params);
 
     switch (raFetchMethod) {
@@ -40,8 +40,6 @@ export default (introspectionResults: IntrospectionResult) =>
       }
       case GET_MANY:
         return {
-
-           //where: { id: { in: preparedParams.ids} }
           filter: { ids: preparedParams.ids },
         };
       case GET_MANY_REFERENCE: {
@@ -152,6 +150,7 @@ const buildGetListVariables =
       sortOrder: string;
     }> = { filter: {} };
     if (params.filter) {
+      console.log("params.filter", params.filter);
       variables.where = Object.keys(params.filter).reduce((acc, key) => {
         if (key === "ids") {
           return { ...acc, ids: params.filter[key] };
@@ -274,12 +273,8 @@ const buildCreateUpdateVariables = (
         };
       }
       if (Array.isArray(data[key])) {
-        console.log("im in", data[key]);
         const relations = { connect: [], create: [] };
-        var valami = data[key];
-        console.log("valami tipus", valami[0]);
         if(Array.isArray(data[key][0])){
-            console.log("im in2", data[key][0]);
         }
         data[key].forEach((element) => {
           console.log("element", element);
@@ -305,7 +300,6 @@ const buildCreateUpdateVariables = (
 
       if (typeof data[key] === "object") {
         var relations = { connect :null , create: null, disconnect: null};
-        console.log("here2", data[key], key);
           if ( data[key].id) {
             relations.connect = { id:  data[key].id };
             relations.create = null;

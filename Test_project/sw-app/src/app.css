@@ -1,0 +1,38 @@
+.opening-page {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    color: #fff; /* White text for better contrast */
+}
+
+.content-wrapper {
+    text-align: center;
+    margin-top: 5%;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    font-style: italic ;
+    margin-bottom: 1rem;
+    color: #f7ff33
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: white;
+}
+
+.admin-button {
+    background-color: #f7ff33; /* Blue button */
+    color: #2f2f2f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}

@@ -11,13 +11,18 @@
   },
   "dependencies": {
     "@apollo/client": "^3.9.5",
+    "@fontsource/roboto": "^5.0.13",
     "apollo-upload-client": "^18.0.1",
     "graphql": "^16.8.1",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.4",
     "ra-data-hasura": "^0.6.0",
     "ra-data-json-server": "^4.16.0",
     "react": "^18.2.0",
     "react-admin": "^4.16.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0",
+    "sort-by": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.16.1",
