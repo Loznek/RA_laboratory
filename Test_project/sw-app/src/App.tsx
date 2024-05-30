@@ -16,8 +16,8 @@ import {
 import {UserList} from "./Users";
 import {GalaxyAdmin} from "./GalaxyAdmin";
 import {GalaxyFront} from "./GalaxyFront";
-import {About} from "./aboutpage/About";
-import {OpeningPage} from './OpeningPage';
+import {AboutPage} from "./aboutpage/About";
+import {OpeningPage} from './fontpage/OpeningPage';
 import Navbar from "./Navbar/Navbar";
 
 
@@ -27,8 +27,7 @@ export const App = () => (
         <Routes>
             <Route path="/" element={<OpeningPage/>} />
             <Route path="/admin/*" element={< GalaxyAdmin />} />
-            <Route path="/about/*" element={<About />} />
+            <Route path="/about/*" element={<AboutPage />} />
         </Routes>
-
         </>
     );

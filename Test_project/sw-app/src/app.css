@@ -1,11 +1,10 @@
 .opening-page {
     background-size: cover;
-    background-position: center;
     height: 100vh;
     display: flex;
     justify-content: center;
-
-    color: #fff; /* White text for better contrast */
+    background: #eceaab center;
+    color: #fff;
 }
 
 .content-wrapper {
@@ -13,26 +12,85 @@
     margin-top: 5%;
 }
 
-h1 {
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.image-container img {
+    height: 125px;
+    margin: 20px;
+
+}
+
+h1, h2, h3 {
     font-size: 3rem;
     font-weight: bold;
     font-style: italic ;
     margin-bottom: 1rem;
-    color: #f7ff33
+    margin-top: 1rem;
+    color: #112756
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic ;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic ;
+    margin-bottom: 2rem;
+
 }
 
 p {
     font-size: 1.2rem;
     line-height: 1.5;
-    color: white;
+    color:#4c98dc;
 }
 
 .admin-button {
-    background-color: #f7ff33; /* Blue button */
-    color: #2f2f2f;
+    background-color: #112756;
+    color: #FFFFFF;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 1rem;
+}
+
+.opening-page.dark {
+    background-color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    .opening-page {
+        background-color: #000000;
+    }
+
+    .content-wrapper {
+        color: #fff;
+    }
+
+    h1, h2, h3 {
+        color: #f7ff33;
+    }
+
+    p {
+        color: #fff;
+    }
+
+    .admin-button {
+        background-color: #f7ff33;
+        color: #2f2f2f;
+    }
 }

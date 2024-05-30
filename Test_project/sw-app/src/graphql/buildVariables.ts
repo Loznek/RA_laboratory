@@ -27,7 +27,7 @@ export default (introspectionResults: IntrospectionResult) =>
     queryType: IntrospectionField
   ) => {
 
-    console.log(params);
+
     const preparedParams = prepareParams(params);
 
     switch (raFetchMethod) {
@@ -150,7 +150,6 @@ const buildGetListVariables =
       sortOrder: string;
     }> = { filter: {} };
     if (params.filter) {
-      console.log("params.filter", params.filter);
       variables.where = Object.keys(params.filter).reduce((acc, key) => {
         if (key === "ids") {
           return { ...acc, ids: params.filter[key] };

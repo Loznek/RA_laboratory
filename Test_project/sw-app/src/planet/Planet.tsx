@@ -21,29 +21,49 @@ import {
     FilterLiveSearch,
     FilterList,
     FilterListItem,
-    SavedQueriesList, SimpleShowLayout, RichTextField, DateField, Show, TabbedShowLayout, useRecordContext, SimpleList
+    SavedQueriesList,
+    SimpleShowLayout,
+    RichTextField,
+    DateField,
+    Show,
+    TabbedShowLayout,
+    useRecordContext,
+    SimpleList,
+    TopToolbar, CreateButton, FilterButton
 } from "react-admin";
 import { Chip } from '@mui/material';
 import MailIcon from '@mui/icons-material/MailOutline';
 import CategoryIcon from '@mui/icons-material/LocalOffer';
 import { Card, CardContent } from '@mui/material';
 import NameInput from "../NameInput";
+import React from "react";
 // @ts-ignore
 
 
+const PlanetTitle = () => {
+    const record = useRecordContext();
+    if (!record) return null;
+    return <span>Planet "{record.name}"</span>;
+};
 
 const QuickFilter = ({ label }) => {
     const translate = useTranslate();
     return <Chip sx={{ marginBottom: 1 }} label={translate(label)} />;
 };
 
-const postFilters = [
+const planetFilters = [
     <NameInput label="Name" source='name' />,
 ];
 
+const PlanetListActions = () => (
+    <TopToolbar>
+        <CreateButton />
+        <FilterButton />
+    </TopToolbar>
+);
 
 export const PlanetFilterSidebar = () => (
-    <Card sx={{ order: -1, mr: 2, mt: 9, width: 200 }}>
+    <Card sx={{ order: -1, mr: 2, mt: 5, width: 200 }}>
         <CardContent>
             <FilterList label="Surface" icon={<CategoryIcon />}>
                 <FilterListItem label="Desert" value={{ surface: {equals: 'desert'} }} />
@@ -61,7 +81,7 @@ const ColoredSurfaceField = (props:any) => {
     return (
         <TextField sx={{ color: record[props.source] == 'desert' ?
                         '#C2B280' : record[props.source] == 'gas' ?
-                        '#D3D3D3' : record[props.source] == 'aqueous' ?
+                        '#8c8c8c' : record[props.source] == 'aqueous' ?
                         '#74ccf4' : '#a6b96f',
                         fontWeight: "fontWeightBold",
                         ":hover": {
@@ -72,11 +92,11 @@ const ColoredSurfaceField = (props:any) => {
 };
 
 export const PlanetList = () => {
-    const record = useRecordContext();
     return(
-        <List aside={<PlanetFilterSidebar /> } filters={postFilters} sx={{
-            mr: '5%'
-        }}>
+        <List aside={<PlanetFilterSidebar /> }
+              filters={planetFilters}
+              sx={{mr: '5%'}}
+              actions={<PlanetListActions />}>
             <Datagrid rowClick="show" >
                 <TextField source="name" />
                 <ColoredSurfaceField source="surface" />
@@ -131,7 +151,7 @@ export const PlanetCreate = () => (
 );
 
 export const PlanetShow = () => (
-    <Show>
+    <Show title={<PlanetTitle />}>
         <TabbedShowLayout>
             <TabbedShowLayout.Tab label="Basics">
                 <TextField source="name" />

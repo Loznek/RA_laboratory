@@ -9,9 +9,9 @@ const NameInput = ({ source, label }) => {
     };
 
     return (
-        <label htmlFor={id}>
+        <label htmlFor={id} style={{marginBottom:'12pt' }}>
             {label}
-            <input id={id} type="text" value={event.target.value} onChange={handleChange} />
+            <input id={id} type="text" value={event.target.value} onChange={handleChange} style={{marginBottom:'0pt',marginLeft:'15pt',marginRight:'4pt'  }} />
             {fieldState.error && <span>{fieldState.error.message}</span>}
     </label>
     );

@@ -13,8 +13,9 @@ import grey from '@mui/material/colors/grey';
 import {authProvider} from "./authProvider";
 import {JediCreate, JediEdit, JediList, JediShow} from "./jedi/JediList";
 import {PlanetCreate, PlanetEdit, PlanetList, PlanetShow} from "./planet/Planet";
-import {RaceCreate, RaceEdit, RaceList, RaceShow} from "./Race/RaceList";
-import {darkTheme} from "./themes/darkTheme";
+import {RaceCreate, RaceEdit, RaceList} from "./Race/RaceList";
+import {darkTheme, lightTheme} from "./themes/darkTheme";
+import DarkModeBrowserPref, {DarkModeToggle, ThemeSwapper} from "./themes/toggleTheme";
 
 export const GalaxyAdmin = () => {
 
@@ -28,7 +29,7 @@ export const GalaxyAdmin = () => {
 
     return (
         dataProvider && (
-                <Admin  layout={SwLayout} theme={darkTheme} basename="/admin" requireAuth authProvider={authProvider} dataProvider={dataProvider}>
+                <Admin  theme={lightTheme} darkTheme={darkTheme} defaultTheme="light" layout={SwLayout}  basename="/admin" requireAuth authProvider={authProvider} dataProvider={dataProvider}>
                     <Resource icon={JediIcon} name="Jedi" list={JediList} edit={JediEdit} show={JediShow}  create={JediCreate} recordRepresentation={(record: any) => `${record.name}`} />
                     <Resource icon={PlanetIcon} name="Planet" list={PlanetList} edit={PlanetEdit} show={PlanetShow} create={PlanetCreate} recordRepresentation={(record: any) => `${record.name}`}/>
                     <Resource icon={RaceIcon} name="Race" list={RaceList}  edit={RaceEdit} create={RaceCreate} recordRepresentation={(record: any) => `${record.name}`}/>
@@ -37,7 +38,7 @@ export const GalaxyAdmin = () => {
     );
 };
 
-export const SwAppBar = () => <AppBar sx={{ background:'#000000' }} color="primary" position="relative" />;
+export const SwAppBar = () => <AppBar sx={{'& .RaAppBar-toolbar': { bgcolor: 'background.paper', backgroundImage: null }}} toolbar={<DarkModeBrowserPref />}  position="relative" />;
 
 // @ts-ignore
 export const SwLayout = props => <Layout sx={{ '& .RaLayout-appFrame': { marginTop: 0 } }} {...props} appBar={SwAppBar} />;

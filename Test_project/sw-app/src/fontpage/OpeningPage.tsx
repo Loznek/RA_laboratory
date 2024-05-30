@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
-import PICTURES from "./Pictures/Pictures"; // Import your CSS file
+import '../app.css';
+import PICTURES from "../Pictures/Pictures"; // Import your CSS file
 
 
 export const OpeningPage = () => {
 
 
     return (
-        <div className="opening-page" style={{ background: '#000000' }}>
+        <div className="opening-page" >
             <div className="content-wrapper">
                 <img  height={300} src={PICTURES.swLogo} title="saber" />
                 <h1>{"Star Wars Admin"}</h1>
